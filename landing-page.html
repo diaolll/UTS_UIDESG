@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FURNISH — Kurang Kaku, Lebih Nyata</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            font-family: 'Inter', sans-serif;
+            background: white;
+            overflow-x: hidden;
+        }
+
+        .serif {
+            font-family: 'Instrument Serif', serif;
+        }
+
+        .page-container {
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+        }
+
+                .inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            width: 100%;
+        }
+
+                .navigation {
+            width: 100%;
+            height: 64px;
+            background: white;
+            border-bottom: 1px solid #f5f5f5;
+            position: relative;
+            z-index: 100;
+        }
+
+        .navigation .inner {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-link {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 15px;
+            color: #1a1a1a;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .nav-logo {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 20px;
+            color: #1a1a1a;
+            letter-spacing: 0.05em;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .nav-cta {
+            width: 110px;
+            height: 40px;
+            background: #1a1a1a;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 14px;
+            color: white;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+                .hero {
+            width: 100%;
+            min-height: 700px;
+            background: #fafafa;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero .inner {
+            min-height: 700px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-top: 60px;
+            padding-bottom: 60px;
+            position: relative;
+        }
+
+        .hero-eyebrow {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 13px;
+            color: #666;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .hero-title {
+            font-family: 'Instrument Serif', serif;
+            font-weight: 400;
+            font-size: 64px;
+            line-height: 1.1;
+            color: #1a1a1a;
+            width: 55%;
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title em {
+            font-style: italic;
+        }
+
+        .hero-description {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 1.6;
+            color: #555;
+            width: 45%;
+            margin-bottom: 32px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-button {
+            width: 160px;
+            height: 52px;
+            background: #1a1a1a;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 15px;
+            color: white;
+            text-decoration: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-browser {
+            position: absolute;
+            width: 48%;
+            height: 480px;
+            top: 50%;
+            right: 40px;
+            transform: translateY(-50%);
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        .hero-browser-header {
+            height: 40px;
+            background: #f5f5f5;
+            border-radius: 12px 12px 0 0;
+            display: flex;
+            align-items: center;
+            padding-left: 16px;
+            gap: 8px;
+        }
+
+        .browser-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .browser-dot.red { background: #ff5f57; }
+        .browser-dot.yellow { background: #ffbd2e; }
+        .browser-dot.green { background: #28c940; }
+
+        .hero-browser-content {
+            height: calc(480px - 40px);
+            background: white;
+            background-image: url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&h=600&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+                .testimonial-social {
+            width: 100%;
+            min-height: 379px;
+            background: #1a1a1a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 64px 40px;
+            text-align: center;
+        }
+
+        .testimonial-social-title {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 13px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #999;
+            margin-bottom: 24px;
+        }
+
+        .testimonial-social-description {
+            font-family: 'Instrument Serif', serif;
+            font-weight: 400;
+            font-size: 28px;
+            line-height: 1.3;
+            color: white;
+            max-width: 700px;
+            margin-bottom: 48px;
+        }
+
+        .testimonial-social-logos {
+            display: flex;
+            gap: 60px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .testimonial-social-logo {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+            color: rgba(255,255,255,0.7);
+            padding: 0 20px;
+            letter-spacing: 0.05em;
+        }
+
+                .feature-list {
+            width: 100%;
+            min-height: 600px;
+            background: #fafafa;
+            padding: 80px 0 120px;
+            position: relative;
+        }
+
+        .feature-list .inner {
+            display: flex;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .feature-list-left {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .feature-list-title {
+            font-family: 'Instrument Serif', serif;
+            font-weight: 400;
+            font-size: 32px;
+            line-height: 1.3;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+        }
+
+        .feature-list-description {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 40px;
+        }
+
+        .feature-list-items {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .feature-list-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .feature-list-ellipse {
+            width: 8px;
+            height: 8px;
+            background: #1a1a1a;
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 8px;
+        }
+
+        .feature-list-text {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        .feature-list-media {
+            width: 45%;
+            flex-shrink: 0;
+            height: 400px;
+            background: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=800&fit=crop') center/cover;
+            border-radius: 12px;
+        }
+
+                .feature-split-right {
+            width: 100%;
+            min-height: 600px;
+            background: #fafafa;
+            display: flex;
+            align-items: stretch;
+            padding-top: 80px;
+        }
+
+        .feature-split-right-media-side {
+            width: 50%;
+            flex-shrink: 0;
+            background: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 40px;
+        }
+
+        .feature-split-right-media-object {
+            width: 100%;
+            max-width: 360px;
+            height: 320px;
+            background: url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=500&fit=crop') center/cover;
+            border-radius: 12px;
+        }
+
+        .feature-split-right-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px 60px;
+        }
+
+        .feature-split-right-title {
+            font-family: 'Instrument Serif', serif;
+            font-weight: 400;
+            font-size: 36px;
+            line-height: 1.3;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+        }
+
+        .feature-split-right-description {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 32px;
+        }
+
+        .feature-split-right-button {
+            width: 140px;
+            height: 48px;
+            background: transparent;
+            border: 1px solid #1a1a1a;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 15px;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+                .feature-quote-left {
+            width: 100%;
+            min-height: 600px;
+            background: #fafafa;
+            padding: 80px 0;
+        }
+
+        .feature-quote-left .inner {
+            display: flex;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .feature-quote-left-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-width: 0;
+        }
+
+        .feature-quote-left-label {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 13px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #666;
+            margin-bottom: 16px;
+        }
+
+        .feature-quote-left-title {
+            font-family: 'Instrument Serif', serif;
+            font-weight: 400;
+            font-size: 36px;
+            line-height: 1.3;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+        }
+
+        .feature-quote-left-title em {
+            font-style: italic;
+        }
+
+        .feature-quote-left-description {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 32px;
+        }
+
+        .feature-quote-left-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .feature-quote-left-ellipse {
+            width: 40px;
+            height: 40px;
+            background: #1a1a1a;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .feature-quote-left-name {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 14px;
+            color: #1a1a1a;
+        }
+
+        .feature-quote-left-boxes {
+            width: 45%;
+            flex-shrink: 0;
+            position: relative;
+            height: 400px;
+        }
+
+        .feature-quote-left-black-box {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 90%;
+            height: 100%;
+            background: #1a1a1a;
+            border-radius: 12px;
+            z-index: 1;
+        }
+
+        .feature-quote-left-white-box {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 85%;
+            height: 85%;
+            background: white;
+            border-radius: 12px;
+            z-index: 2;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+        }
+
+                .testimonial-quote {
+            width: 100%;
+            min-height: 400px;
+            background: #1a1a1a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 40px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-quote-text {
+            font-family: 'Instrument Serif', serif;
+            font-weight: 400;
+            font-size: 28px;
+            line-height: 1.4;
+            color: white;
+            max-width: 700px;
+            margin-bottom: 40px;
+        }
+
+        .testimonial-quote-person {
+            width: 48px;
+            height: 48px;
+            background: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop') center/cover;
+            border-radius: 50%;
+            margin-bottom: 16px;
+        }
+
+        .testimonial-quote-name {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 14px;
+            color: #999;
+        }
+
+                .overlap-image-container {
+            position: relative;
+            width: 100%;
+            height: 180px;
+            margin-top: -90px;
+            margin-bottom: -90px;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .overlap-image {
+            width: 280px;
+            height: 180px;
+            background: url('https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=600&h=400&fit=crop') center/cover;
+            border-radius: 12px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+            margin: 0 auto;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+                .blog-section {
+            width: 100%;
+            background: #fafafa;
+            padding: 100px 0 100px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .blog-section .inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .blog-title {
+            font-family: 'Instrument Serif', serif;
+            font-weight: 400;
+            font-size: 36px;
+            color: #1a1a1a;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .blog-description {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+            text-align: center;
+            max-width: 600px;
+            margin-bottom: 60px;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            width: 100%;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+        }
+
+        .blog-card-media {
+            width: 100%;
+            height: 200px;
+            background-color: #1a1a1a;
+            background-size: cover;
+            background-position: center;
+            flex-shrink: 0;
+        }
+
+        .blog-card:nth-child(1) .blog-card-media {
+            background-image: url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&h=400&fit=crop');
+        }
+
+        .blog-card:nth-child(2) .blog-card-media {
+            background-image: url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&h=400&fit=crop');
+        }
+
+        .blog-card:nth-child(3) .blog-card-media {
+            background-image: url('https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=600&h=400&fit=crop');
+        }
+
+        .blog-card-content {
+            padding: 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card-title {
+            font-family: 'Instrument Serif', serif;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 1.4;
+            color: #1a1a1a;
+            margin-bottom: auto;
+        }
+
+        .blog-card-link {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 14px;
+            color: #1a1a1a;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+
+                .footer {
+            width: 100%;
+            background: #1a1a1a;
+            padding: 60px 0 40px;
+        }
+
+        .footer-top {
+            display: flex;
+            gap: 0;
+            align-items: stretch;
+        }
+
+        .footer-brand-col {
+            flex-shrink: 0;
+            padding-right: 40px;
+            display: flex;
+            align-items: flex-start;
+            padding-top: 2px;
+        }
+
+        .footer-brand {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+            color: white;
+            letter-spacing: 0.05em;
+        }
+
+        .footer-divider {
+            width: 1px;
+            background: rgba(255,255,255,0.15);
+            margin-right: 40px;
+            flex-shrink: 0;
+        }
+
+        .footer-content {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1.5fr 100px 100px 100px;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .footer-links-product,
+        .footer-links-company,
+        .footer-links-help {
+            flex-shrink: 0;
+        }
+
+        .footer-link-header {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 12px;
+            color: white;
+            margin-bottom: 16px;
+            letter-spacing: 0.05em;
+        }
+
+        .footer-link-item {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            color: rgba(255,255,255,0.6);
+            display: block;
+            margin-bottom: 12px;
+            text-decoration: none;
+        }
+
+        .footer-blog-title {
+            font-family: 'Instrument Serif', serif;
+            font-weight: 400;
+            font-size: 18px;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .footer-blog-description {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 1.6;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: flex-end;
+            gap: 24px;
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-copyright,
+        .footer-terms {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 13px;
+            color: rgba(255,255,255,0.4);
+        }
+
+                @media (max-width: 1024px) {
+            .hero-title {
+                font-size: 48px;
+                width: 55%;
+            }
+
+            .hero-description {
+                width: 50%;
+            }
+
+            .hero-browser {
+                width: 46%;
+            }
+
+            .feature-split-right-content {
+                padding: 40px 40px;
+            }
+
+            .nav-logo {
+                font-size: 18px;
+            }
+
+            .nav-links {
+                gap: 24px;
+            }
+
+            .nav-link {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .inner {
+                padding: 0 24px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-logo {
+                font-size: 18px;
+            }
+
+            .nav-cta {
+                display: none;
+            }
+
+            .hero .inner {
+                min-height: auto;
+                padding: 48px 24px;
+                align-items: center;
+                text-align: center;
+            }
+
+            .hero-title,
+            .hero-description {
+                width: 100%;
+            }
+
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .hero-browser {
+                position: relative;
+                width: 100%;
+                height: 280px;
+                top: auto;
+                right: auto;
+                transform: none;
+                margin-top: 32px;
+            }
+
+            .hero-browser-content {
+                background-image: url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=400&h=300&fit=crop') !important;
+            }
+
+            .hero-button {
+                width: 100%;
+                max-width: 220px;
+            }
+
+            .feature-list .inner {
+                flex-direction: column;
+            }
+
+            .feature-list-media {
+                width: 100%;
+            }
+
+            .feature-split-right {
+                flex-direction: column;
+                padding-top: 40px;
+            }
+
+            .feature-split-right-media-side,
+            .feature-split-right-content {
+                width: 100%;
+            }
+
+            .feature-split-right-media-side {
+                min-height: 250px;
+            }
+
+            .feature-split-right-content {
+                padding: 40px 24px;
+            }
+
+            .feature-quote-left .inner {
+                flex-direction: column;
+            }
+
+            .feature-quote-left-content {
+                width: 100%;
+            }
+
+            .feature-quote-left-boxes {
+                width: 100%;
+                height: 280px;
+            }
+
+            .feature-quote-left-black-box {
+                width: 85%;
+            }
+
+            .feature-quote-left-white-box {
+                width: 80%;
+                height: 80%;
+            }
+
+            .testimonial-social-logos {
+                gap: 30px;
+            }
+
+            .testimonial-social-logo {
+                font-size: 12px;
+            }
+
+            .footer-top {
+                flex-direction: column;
+                gap: 32px;
+            }
+
+            .footer-divider {
+                width: 100%;
+                height: 1px;
+                margin-right: 0;
+                margin-bottom: 0;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 28px;
+            }
+
+            .feature-split-right-title {
+                font-size: 24px;
+            }
+
+            .feature-quote-left-title {
+                font-size: 24px;
+            }
+
+            .testimonial-quote-text {
+                font-size: 20px;
+            }
+
+            .blog-title {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+
+                <nav class="navigation">
+            <div class="inner" style="position:relative;">
+                <div class="nav-links">
+                    <a href="#" class="nav-link">Belanja</a>
+                    <a href="#" class="nav-link">Koleksi</a>
+                    <a href="#" class="nav-link">Tentang</a>
+                </div>
+                <div class="nav-logo">FURNISH</div>
+                <a href="#" class="nav-cta">Keranjang</a>
+            </div>
+        </nav>
+
+                <section class="hero">
+            <div class="inner">
+                <span class="hero-eyebrow">Koleksi Baru 2025</span>
+                <h1 class="hero-title">Kurang Kaku.<br><em>Lebih Nyata.</em></h1>
+                <p class="hero-description">Furnitur yang tidak terlalu serius. Kualitas kerajinan bertemu kemudahan modern untuk cara Anda benar-benar hidup.</p>
+                <a href="#" class="hero-button">Jelajahi</a>
+            </div>
+        </section>
+
+                <section class="testimonial-social">
+            <h2 class="testimonial-social-title">Dibuat dengan niat</h2>
+            <p class="testimonial-social-description">Dirancang untuk kehidupan — kurang kaku, lebih nyata.</p>
+            <div class="testimonial-social-logos">
+                <span class="testimonial-social-logo">Tempo</span>
+                <span class="testimonial-social-logo">Kompas</span>
+                <span class="testimonial-social-logo">Elle Decor</span>
+                <span class="testimonial-social-logo">LivingETC</span>
+                <span class="testimonial-social-logo">AD Indonesia</span>
+            </div>
+        </section>
+
+                <section class="feature-list">
+            <div class="inner">
+                <div class="feature-list-left">
+                    <h3 class="feature-list-title">Furnitur yang terasa seperti Anda</h3>
+                    <p class="feature-list-description">Tanpa ruangan kaku yang formal. Tanpa ruangan yang terasa seperti museum. Hanya furnitur nyata untuk kehidupan nyata.</p>
+                    <div class="feature-list-items">
+                        <div class="feature-list-item">
+                            <div class="feature-list-ellipse"></div>
+                            <span class="feature-list-text">Dibuat dengan material berkelanjutan</span>
+                        </div>
+                        <div class="feature-list-item">
+                            <div class="feature-list-ellipse"></div>
+                            <span class="feature-list-text">Kerajinan tangan dengan perhatian detail</span>
+                        </div>
+                        <div class="feature-list-item">
+                            <div class="feature-list-ellipse"></div>
+                            <span class="feature-list-text">Nyaman, fungsional, dan indah</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="feature-list-media"></div>
+            </div>
+        </section>
+
+                <section class="feature-split-right">
+            <div class="feature-split-right-media-side">
+                <div class="feature-split-right-media-object"></div>
+            </div>
+            <div class="feature-split-right-content">
+                <span class="feature-quote-left-label">Sorotan Ruangan</span>
+                <h3 class="feature-split-right-title">Sofa Oslo</h3>
+                <p class="feature-split-right-description">Kursi santai khas kami, dirancang menjadi pusat perhatian setiap ruangan. Dibuat dengan tangan menggunakan material berkelanjutan.</p>
+                <a href="#" class="feature-split-right-button">Belanja</a>
+            </div>
+        </section>
+
+                <section class="feature-quote-left">
+            <div class="inner">
+                <div class="feature-quote-left-content">
+                    <span class="feature-quote-left-label">Filosofi Kami</span>
+                    <h3 class="feature-quote-left-title">Kami percaya furnitur harus <em>terasa seperti Anda</em></h3>
+                    <p class="feature-quote-left-description">Kualitas kerajinan bertemu kemudahan modern. Setiap piece dirancang dengan intention untuk kehidupan sehari-hari.</p>
+                    <div class="feature-quote-left-author">
+                        <div class="feature-quote-left-ellipse"></div>
+                        <span class="feature-quote-left-name">Tim FURNISH</span>
+                    </div>
+                </div>
+                <div class="feature-quote-left-boxes">
+                    <div class="feature-quote-left-black-box"></div>
+                    <div class="feature-quote-left-white-box"></div>
+                </div>
+            </div>
+        </section>
+
+                <section class="testimonial-quote">
+            <p class="testimonial-quote-text">"Akhirnya furnitur yang tidak membuat rumah saya terasa seperti showroom. Nyaman, beautiful, dan actually livable."</p>
+            <span class="testimonial-quote-name">Sarah — Jakarta Selatan</span>
+        </section>
+
+                <section class="blog-section">
+            <div class="inner">
+                <h2 class="blog-title">Jurnal</h2>
+                <p class="blog-description">Cerita tentang furniture, desain, dan cara kita hidup.</p>
+                <div class="blog-grid">
+                    <div class="blog-card">
+                        <div class="blog-card-content">
+                            <h4 class="blog-card-title">Cara mendekorasi ruang tamu kecil</h4>
+                            <a href="#" class="blog-card-link">Baca Selengkapnya</a>
+                        </div>
+                    </div>
+                    <div class="blog-card">
+                        <div class="blog-card-content">
+                            <h4 class="blog-card-title">Material berkelanjutan: Panduan lengkap</h4>
+                            <a href="#" class="blog-card-link">Baca Selengkapnya</a>
+                        </div>
+                    </div>
+                    <div class="blog-card">
+                        <div class="blog-card-content">
+                            <h4 class="blog-card-title">Warna tren interior 2025</h4>
+                            <a href="#" class="blog-card-link">Baca Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+                <footer class="footer">
+            <div class="inner">
+                <div class="footer-top">
+                    <div class="footer-brand-col">
+                        <span class="footer-brand">FURNISH</span>
+                    </div>
+                    <div class="footer-divider"></div>
+                    <div class="footer-content">
+                        <div class="footer-blog">
+                            <h4 class="footer-link-header" style="color:rgba(255,255,255,0.5)">Tetap Terhubung</h4>
+                            <p class="footer-blog-title">Kurang kaku. Lebih nyata.</p>
+                            <p class="footer-blog-description">Furnitur untuk cara Anda benar-benar hidup. Produk terbaru & inspirasi di inbox Anda.</p>
+                        </div>
+                        <div class="footer-links-product">
+                            <h4 class="footer-link-header">Belanja</h4>
+                            <a href="#" class="footer-link-item">Semua Produk</a>
+                            <a href="#" class="footer-link-item">Terbaru</a>
+                            <a href="#" class="footer-link-item">Terlaris</a>
+                            <a href="#" class="footer-link-item">Promo</a>
+                        </div>
+                        <div class="footer-links-company">
+                            <h4 class="footer-link-header">Tentang</h4>
+                            <a href="#" class="footer-link-item">Cerita Kami</a>
+                            <a href="#" class="footer-link-item">Keberlanjutan</a>
+                            <a href="#" class="footer-link-item">Pers</a>
+                        </div>
+                        <div class="footer-links-help">
+                            <h4 class="footer-link-header">Bantuan</h4>
+                            <a href="#" class="footer-link-item">Pengiriman</a>
+                            <a href="#" class="footer-link-item">Pengembalian</a>
+                            <a href="#" class="footer-link-item">Kontak</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <span class="footer-copyright">© 2025 FURNISH</span>
+                    <span class="footer-terms">Privasi — Syarat</span>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+</body>
+</html>

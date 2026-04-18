@@ -1,60 +1,109 @@
-// ============================================
-// FURNISH — JavaScript Functions
-// ============================================
+const hamburger = document.getElementById('hamburger');
+const drawer = document.getElementById('mobileDrawer');
 
-// Mobile Menu Toggle
-const menuToggle = document.querySelector('.menu-toggle');
-const mobileMenu = document.querySelector('.mobile-menu');
-const mobileLinks = document.querySelectorAll('.mobile-menu-link');
-
-menuToggle?.addEventListener('click', () => {
-    mobileMenu.classList.toggle('active');
-    menuToggle.classList.toggle('active');
-    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  drawer.classList.toggle('open');
 });
 
-mobileLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        mobileMenu.classList.remove('active');
-        menuToggle.classList.remove('active');
-        document.body.style.overflow = '';
+drawer.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    drawer.classList.remove('open');
+  });
+});
+
+const nav = document.querySelector('.navigation');
+let lastScroll = 0;
+
+nav.style.transition = 'transform 0.35s cubic-bezier(0.4,0,0.2,1)';
+
+window.addEventListener('scroll', () => {
+  const current = window.scrollY;
+  if (current <= 64) { nav.style.transform = 'translateY(0)'; return; }
+  if (current > lastScroll) {
+    nav.style.transform = 'translateY(-100%)';
+    hamburger.classList.remove('open');
+    drawer.classList.remove('open');
+  } else {
+    nav.style.transform = 'translateY(0)';
+  }
+  lastScroll = current;
+}, { passive: true });
+
+const fadeSelectors = [
+  '.hero-eyebrow','.hero-title','.hero-description','.hero-button','.hero-browser',
+  '.testimonial-social-title','.testimonial-social-description','.testimonial-social-logos',
+  '.feature-list-title','.feature-list-description','.feature-list-item','.feature-list-right',
+  '.feature-split-right-media-side','.feature-split-right-content',
+  '.feature-quote-left-content','.feature-quote-left-boxes',
+  '.testimonial-quote-text','.testimonial-quote-person','.testimonial-quote-name',
+  '.blog-title','.blog-description','.blog-card',
+];
+
+const styleTag = document.createElement('style');
+styleTag.textContent = `
+  .fade-hidden { opacity:0; transform:translateY(28px); transition:opacity 0.65s cubic-bezier(0.4,0,0.2,1), transform 0.65s cubic-bezier(0.4,0,0.2,1); }
+  .fade-visible { opacity:1 !important; transform:translateY(0) !important; }
+`;
+document.head.appendChild(styleTag);
+
+const fadeEls = [];
+fadeSelectors.forEach(sel => {
+  document.querySelectorAll(sel).forEach((el, i) => {
+    el.classList.add('fade-hidden');
+    el.style.transitionDelay = `${i * 0.08}s`;
+    fadeEls.push(el);
+  });
+});
+
+const fadeObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('fade-visible'); fadeObserver.unobserve(e.target); }
+  });
+}, { threshold: 0.12 });
+
+fadeEls.forEach(el => fadeObserver.observe(el));
+
+const heroBrowser = document.querySelector('.hero-browser');
+if (heroBrowser && window.innerWidth > 768) {
+  window.addEventListener('scroll', () => {
+    heroBrowser.style.transform = `translateY(calc(-50% + ${window.scrollY * 0.12}px))`;
+  }, { passive: true });
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', e => {
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+
+if (window.innerWidth > 768) {
+  const cursor = document.createElement('div');
+  Object.assign(cursor.style, {
+    position:'fixed', top:'0', left:'0',
+    width:'10px', height:'10px',
+    background:'#1a1a1a', borderRadius:'50%',
+    pointerEvents:'none', zIndex:'9999',
+    transform:'translate(-50%,-50%)',
+    transition:'width .2s, height .2s, background .2s, border .2s, opacity .2s',
+    opacity:'0',
+  });
+  document.body.appendChild(cursor);
+
+  window.addEventListener('mousemove', e => {
+    cursor.style.left = `${e.clientX}px`;
+    cursor.style.top  = `${e.clientY}px`;
+    cursor.style.opacity = '1';
+  });
+
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      Object.assign(cursor.style, { width:'28px', height:'28px', background:'transparent', border:'1.5px solid #1a1a1a' });
     });
-});
-
-// Newsletter Form Handling
-document.querySelector('.newsletter-form')?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    alert('Terima kasih telah berlangganan!');
-    e.target.reset();
-});
-
-// Smooth Scroll for Anchor Links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', (e) => {
-        const href = anchor.getAttribute('href');
-        if (href !== '#') {
-            e.preventDefault();
-            document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
-        }
+    el.addEventListener('mouseleave', () => {
+      Object.assign(cursor.style, { width:'10px', height:'10px', background:'#1a1a1a', border:'none' });
     });
-});
-
-// Scroll Animations using Intersection Observer
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.product-card, .category-card').forEach((el, i) => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = `opacity 0.6s ease ${i * 0.1}s, transform 0.6s ease ${i * 0.1}s`;
-    observer.observe(el);
-});
-
-// Console Branding
-console.log('%c FURNISH — Furnitur untuk Kehidupan Nyata ', 'background: #1A1A1A; color: #F4F1EA; padding: 12px 24px; font-family: serif;');
+  });
+}
